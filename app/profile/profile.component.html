@@ -1,4 +1,14 @@
-<div *ngIf="user">
+<div class="row">
+    <div class="col-md-12">
+        <form action="">
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Enter GitHub Username" [(ngModel)]="username" (keyup.enter)="searchUser()">
+            </div>
+        </form>
+    </div>
+</div>
+
+<div *ngIf="showUser">
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title">{{user.name}}</h3>

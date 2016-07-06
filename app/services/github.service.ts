@@ -14,7 +14,7 @@ export class GitHubService{
     private username:any; //Github username
 
     constructor(private _http:Http){
-        this.username = 'sirjconny'; //my account
+        this.username = ''; //my account
     }
 
     //get the account of the username
@@ -28,5 +28,8 @@ export class GitHubService{
         return this._http.get('https://api.github.com/users/' + this.username + '/repos')
             .map(res=>res.json());
     }
-
+    //update username
+    updateUser(username:string){
+        this.username = username;
+    }
 }
