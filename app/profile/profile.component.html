@@ -7,7 +7,9 @@
         </form>
     </div>
 </div>
-
+<div *ngIf="error">
+    <div class="alert alert-danger" role="alert">{{error}}</div>
+</div>
 <div *ngIf="showUser">
     <div class="panel panel-default">
         <div class="panel-heading">
