@@ -23,5 +23,10 @@ export class GitHubService{
         return this._http.get('https://api.github.com/users/' + this.username)
             .map(res=>res.json());
     }
+    //get the account repos of the username
+    getRepos(){
+        return this._http.get('https://api.github.com/users/' + this.username + '/repos')
+            .map(res=>res.json());
+    }
 
 }

@@ -10,11 +10,16 @@ import 'rxjs/add/operator/map';
 export class ProfileComponent { 
     //this will be an observable so we must use these brackets
     user[];
+    repos[];
     //dependency injection with constructor
     constructor(private _githubService:GitHubService){
         this._githubService.getUser().subscribe(user=>{
             this.user = user;
             console.log(user);
+        })
+        this._githubService.getRepos().subscribe(repos=>{
+            this.repos = repos;
+            console.log(repos);
         })
     }
     
