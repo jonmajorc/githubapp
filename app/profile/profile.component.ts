@@ -13,7 +13,7 @@ export class ProfileComponent {
     repos[];
     showUser:boolean;
     username:string;
-
+    error:string;
     //dependency injection with constructor
     constructor(private _githubService:GitHubService){
         this.showUser = false;    
@@ -21,11 +21,17 @@ export class ProfileComponent {
 
     searchUser(){
         this._githubService.updateUser(this.username);
-        
+       
         this._githubService.getUser().subscribe(user=>{
+            this.error = null;
             this.showUser = true;
             this.user = user;
             console.log(user);
+        },(err)=>{
+            this.error = 'Houston we got a problem... User is not found.';
+            console.log('Houston we got a problem');
+            console.log(err);
+            this.showUser = false;
         })
 
         this._githubService.getRepos().subscribe(repos=>{
